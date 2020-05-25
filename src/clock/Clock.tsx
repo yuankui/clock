@@ -9,7 +9,7 @@ interface Props {
 
 const Clock: FunctionComponent<Props> = (props) => {
     const [width, setWidth] = useState(400);
-    const r = width / 2 - 50;
+    const r = width / 2;
 
     const [minutes, setMinutes] = useState<any>(null);
     const [seconds, setSeconds] = useState<any>(null);
@@ -115,14 +115,14 @@ const Clock: FunctionComponent<Props> = (props) => {
 
     // 时针
     const hourAngle = (props.hour / 12) * Math.PI * 2 - Math.PI / 2;
-    const len = 90;
+    const len = r / 2;
     const hourPointer = <>
         <path
             d={`M ${Math.cos(hourAngle) * len} ${Math.sin(hourAngle) * len}  L 0 0 `}
             stroke={'black'} strokeWidth={4} strokeLinecap={'round'}/>
 
         <path
-            d={`M ${Math.cos(hourAngle) * (len-1)} ${Math.sin(hourAngle) * (len-1)}  L ${Math.cos(hourAngle) * 60} ${Math.sin(hourAngle) * 60} `}
+            d={`M ${Math.cos(hourAngle) * (len - 1)} ${Math.sin(hourAngle) * (len - 1)}  L ${Math.cos(hourAngle) * (len - 20)} ${Math.sin(hourAngle) * (len - 20)} `}
             stroke={'white'} strokeWidth={2} strokeLinecap={'round'}/>
     </>;
 
